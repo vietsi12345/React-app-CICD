@@ -1,0 +1,8 @@
+li {
+    list-style: none;
+}
+
+.link-to-admin{
+    cursor: pointer;
+    text-decoration: none;
+}

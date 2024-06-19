@@ -12,11 +12,12 @@
     "@mui/x-date-pickers": "^7.6.2",
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^15.0.6",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "dayjs": "^1.11.11",
     "formik": "^2.4.6",
+    "matchmedia-polyfill": "^0.3.2",
     "os-browserify": "^0.3.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.2",
@@ -67,14 +68,14 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "identity-obj-proxy"
+      "\\.(css|less|sass|scss)$": "identity-obj-proxy",
+      "^axios$": "axios/dist/node/axios.cjs"
     },
     "transform": {
       "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     },
     "transformIgnorePatterns": [
-      "<rootDir>/node_modules/(?!(axios)/)"
+      "node_modules/(?!axios)"
     ],
     "moduleFileExtensions": [
       "js",
@@ -83,7 +84,9 @@
       "node"
     ],
     "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect"
+      "@testing-library/jest-dom/extend-expect",
+      "matchmedia-polyfill",
+      "matchmedia-polyfill/matchMedia.addListener"
     ],
     "testEnvironment": "jsdom"
   },

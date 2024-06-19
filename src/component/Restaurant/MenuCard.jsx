@@ -44,7 +44,7 @@ export const MenuCard = ({ item, restaurantId, vagetarian, nonveg, seasonal, dri
 
         // console.log('reqData', reqData);
         // Load lại trang sau khi thêm vào giỏ hàng
-        // window.location.reload();
+        window.location.reload();
     };
 
 

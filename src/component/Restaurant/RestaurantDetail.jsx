@@ -54,16 +54,16 @@ const RestaurantDetail = () => {
         }))
     }, [selectedCategory, drinkType, dispatch])
 
-    useEffect(() => {
-        dispatch(getMenuItemsByRestaurantId({
-            jwt,
-            restaurantId: id,
-            vagetarian: drinkType === "vegeration",
-            nonveg: drinkType === "nonveg",
-            seasonal: drinkType === "seasonal",
-            drinkCategory: selectedCategory,
-        }))
-    }, [cart.cartItems])
+    // useEffect(() => {
+    //     dispatch(getMenuItemsByRestaurantId({
+    //         jwt,
+    //         restaurantId: id,
+    //         vagetarian: drinkType === "vegeration",
+    //         nonveg: drinkType === "nonveg",
+    //         seasonal: drinkType === "seasonal",
+    //         drinkCategory: selectedCategory,
+    //     }))
+    // }, [cart.cartItems])
 
     return (
         <div className='px-5 lg:px-10'>

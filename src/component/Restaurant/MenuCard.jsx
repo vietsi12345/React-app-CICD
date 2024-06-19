@@ -1,6 +1,6 @@
 import { Accordion, AccordionDetails, AccordionSummary, Button, Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { categoriezIngredients } from '../Ultil/categoriezIngredients';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart, findCart } from '../State/Cart/Action';
@@ -10,7 +10,7 @@ import { formatMonneyVietNam } from '../Ultil/formatMonneyVietNam';
 export const MenuCard = ({ item, restaurantId, vagetarian, nonveg, seasonal, drinkCategory }) => {
     const [selectedIngredients, setSelectedIngredients] = useState([]);
     const dispatch = useDispatch();
-    const { cart } = useSelector(store => store);
+
 
     const handleCheckboxChange = (value) => {
         if (selectedIngredients.includes(value)) {
@@ -44,8 +44,10 @@ export const MenuCard = ({ item, restaurantId, vagetarian, nonveg, seasonal, dri
 
         // console.log('reqData', reqData);
         // Load lại trang sau khi thêm vào giỏ hàng
-        window.location.reload();
+        // window.location.reload();
     };
+
+
 
     return (
         <Accordion>

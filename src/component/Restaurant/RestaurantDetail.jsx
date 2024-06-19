@@ -23,7 +23,7 @@ const RestaurantDetail = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const jwt = localStorage.getItem('jwt')
-    const { auth, restaurant, menu } = useSelector(store => store)
+    const { auth, restaurant, menu, cart } = useSelector(store => store)
     const [selectedCategory, setSelectedCategory] = useState("")
 
     const { id, city } = useParams()
@@ -54,6 +54,16 @@ const RestaurantDetail = () => {
         }))
     }, [selectedCategory, drinkType, dispatch])
 
+    useEffect(() => {
+        dispatch(getMenuItemsByRestaurantId({
+            jwt,
+            restaurantId: id,
+            vagetarian: drinkType === "vegeration",
+            nonveg: drinkType === "nonveg",
+            seasonal: drinkType === "seasonal",
+            drinkCategory: selectedCategory,
+        }))
+    }, [cart.cartItems])
 
     return (
         <div className='px-5 lg:px-10'>

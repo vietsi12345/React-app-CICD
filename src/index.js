@@ -11,7 +11,7 @@ import { store } from './component/State/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/React-app-CICD">
       <Provider store={store}>
         <App />
       </Provider>
